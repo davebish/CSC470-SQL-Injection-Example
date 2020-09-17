@@ -7,12 +7,9 @@ namespace SQL_Injection_Example_Code
 {
     public class DBAccess
     {
+        // My personal database connection info - won't work on your machine
         private const string CONNECT_INFO = "Data Source=.\\SQLExpress; Initial Catalog=CSC470SQLInjectionExample;" +
                                             "Integrated Security=True; MultipleActiveResultSets=True";
-
-        // SQL Server Error Numbers
-        private const int DUPLICATE_KEY = 2627;
-        private const int FOREIGN_KEY_VIOLATION = 547;
 
         public string GetStudentInfo(string filter)
         {
@@ -22,6 +19,9 @@ namespace SQL_Injection_Example_Code
             try
             {
                 conn.Open();
+                /*************************************************************
+                 * Bad Practice - Only here for an example of what NOT TO DO
+                 *************************************************************/
                 string query = "SELECT CONVERT(varchar(5),Id) + ' ' + " +
                                        "LastName + ', ' + FirstName + ' ' + " +
                                        "CONVERT(varchar(4),GPA) " +
